@@ -77,7 +77,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Your Name - [@btcseedbank](https://twitter.com/BTCSEEDBANK)
 
 Project Link: [https://github.com/mgmgrand420/SimpleCoin](https://github.com/mgmgrand420/SimpleCoin)
-
----
-
-Remember to replace placeholders like `yourusername`, `Your Name`, `@your_twitter`, and any other specific information related to SimpleCoin with actual details. This template provides a basic structure, but feel free to customize it to better fit your project's needs.
