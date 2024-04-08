@@ -26,7 +26,7 @@ SimpleCoin is a lightweight, easy-to-integrate solution for accepting cryptocurr
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/SimpleCoin.git
+   git clone https://github.com/mgmgrand420/SimpleCoin.git
    ```
 
 2. **Configure API Key**
