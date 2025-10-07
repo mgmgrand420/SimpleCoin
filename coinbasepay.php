@@ -1,9 +1,14 @@
 <?php
-// File: create coinbase charge 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve total amount from the request
-    $total = $_POST['total'];
+    // Sanitize and validate inputs
+    $total = filter_var($_POST['total'], FILTER_VALIDATE_FLOAT);
+    $customerEmail = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ?: 'unknown@example.com';
+    $orderId = uniqid('order_');
+
+    if ($total === false || $total <= 0) {
+        echo json_encode(['error' => 'Invalid total amount']);
+        exit;
+    }
 
     // Coinbase Commerce API URL and your API Key
     $url = 'https://api.commerce.coinbase.com/charges';
@@ -15,17 +20,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'description' => 'Charge for items in cart',
         'pricing_type' => 'fixed_price',
         'local_price' => [
-            'amount' => $total,
+            'amount' => number_format($total, 2, '.', ''),
             'currency' => 'USD'
         ],
-    'redirect_url' => 'https://bitcoin.cannabis-seed.us/payment-success.html',
-    'cancel_url' => 'https://bitcoin.cannabis-seed.us/payment-cancel.html'
+        'metadata' => [
+            'order_id' => $orderId,
+            'customer_email' => $customerEmail,
+            'cart_hash' => md5($orderId . $total)
+        ],
+        'redirect_url' => './payment-success.html',
+        'cancel_url' => './payment-cancel.html'
     ];
 
-    // Initiate cURL session
+    // Initialize cURL session
     $ch = curl_init($url);
-
-    // Set cURL options
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Content-Type: application/json',
@@ -43,10 +51,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $responseData = json_decode($response, true);
 
     if (isset($responseData['data']['hosted_url'])) {
-        // Send checkout URL back to client
+        // Optionally store order locally for reconciliation
+        file_put_contents('orders.json', json_encode([
+            'order_id' => $orderId,
+            'amount' => $total,
+            'email' => $customerEmail,
+            'coinbase_charge_id' => $responseData['data']['id'],
+            'status' => 'pending',
+            'created_at' => date('c')
+        ], JSON_PRETTY_PRINT), FILE_APPEND);
+
         echo json_encode(['checkoutUrl' => $responseData['data']['hosted_url']]);
     } else {
-        // Handle errors (simplified)
         echo json_encode(['error' => 'Failed to create charge']);
     }
 }
