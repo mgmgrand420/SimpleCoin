@@ -1,0 +1,64 @@
+[
+  
+
+  {
+    "id": "1",
+    "price": 20.00,
+    "name": "Blue Dream",
+    "type": "Hybrid",
+    "thcContent": "17%",
+     "photo": "product-images/blue-dream.jpg",
+    "cbdContent": "2%",
+    "description": "Blue Dream balances full-body relaxation with gentle cerebral invigoration. Novice and veteran consumers alike enjoy the level effects of Blue Dream, which ease you gently into a calm euphoria."
+  },
+  {
+    "id": "2",
+    "price": 20.00,
+    "name": "Sour Diesel",
+    "type": "Sativa",
+    "photo": "product-images/Sour-Diesel.jpg",
+    "thcContent": "19%",
+    "cbdContent": "1%",
+    "description": "Sour Diesel, also known as Sour D, is a fast-acting strain that delivers energizing, dreamy cerebral effects that have pushed Sour Diesel to its legendary status."
+  },
+  {
+    "id": "3",
+    "price": 20.00,
+    "name": "Granddaddy Purple",
+    "type": "Indica",
+     "photo": "product-images/Granddaddy-Purple.jpg",
+    "thcContent": "23%",
+    "cbdContent": "1%",
+    "description": "Introduced in 2003 by Ken Estes, Granddaddy Purple (or GDP) is a famous Indica cross of Purple Urkle and Big Bud. This California staple inherits a complex grape and berry aroma from its Purple Urkle parent."
+  },
+  {
+    "id": "4",
+    "price": 20.00,
+    "name": "Green Crack",
+    "type": "Sativa",
+     "photo": "product-images/Green-Crack.jpg",
+    "thcContent": "18%",
+    "cbdContent": "0.5%",
+    "description": "Don’t let the name fool you: this is pure cannabis. Few strains compare to Green Crack’s sharp energy and focus as it induces an invigorating mental buzz that keeps you going throughout the day."
+  },
+  {
+    "id": "5",
+    "price": 20.00,
+    "name": "OG Kush",
+    "type": "Hybrid",
+     "photo": "product-images/OG-Kush.jpg",
+    "thcContent": "20%",
+    "cbdContent": "1%",
+    "description": "OG Kush was first cultivated in Florida, in the early ‘90s when a strain from Northern California was crossed with a Hindu Kush plant from Amsterdam. The result was a hybrid with a unique terpene profile."
+  },
+    {
+    "id": "5",
+    "price": 20.00,
+    "name": "GARY PAYTON",
+    "type": "Hybrid",
+    "photo": "product-images/GARY-PAYTON.jpg",
+    "thcContent": "20%",
+    "cbdContent": "1%",
+    "description": "Gary Payton, named after the famous NBA player, is known for its potent effects, unique flavor profile, and impressive lineage."
+  }
+]
